@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Artistic Pastel Theme Colors */
+  --color-background: #fafaf9; /* Warm off-white */
+  --color-surface: #ffffff;
+  --color-surface-container: #f5f5f4;
+  --color-on-surface: #1c1917; /* Deep stone */
+  --color-on-surface-variant: #57534e; /* Muted stone */
+  
+  /* Primary Pastel Palette */
+  --color-pastel-red-light: #fef2f2;
+  --color-pastel-red: #fee2e2;
+  --color-pastel-red-border: #fca5a5;
+  --color-pastel-red-dark: #b91c1c;
+
+  --color-pastel-yellow-light: #fefbeb;
+  --color-pastel-yellow: #fef3c7;
+  --color-pastel-yellow-border: #fde047;
+  --color-pastel-yellow-dark: #b45309;
+
+  --color-pastel-blue-light: #f0f9ff;
+  --color-pastel-blue: #e0f2fe;
+  --color-pastel-blue-border: #7dd3fc;
+  --color-pastel-blue-dark: #0369a1;
+
+  --color-primary: #fca5a5; /* Soft pastel red */
+  --color-secondary: #7dd3fc; /* Soft light blue */
+  --color-tertiary: #fde047; /* Soft pastel yellow */
+}
+
+/* Custom global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Soft light-mode glassmorphism */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  border: 1px solid rgba(252, 165, 165, 0.35); /* Glow to pastel-red border */
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transform: translateY(-2px);
+}
+
+.bento-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(252, 165, 165, 0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glass-panel:hover .bento-glow {
+  opacity: 1;
+}
+
+/* Custom glowing effects for buttons and cards */
+.btn-glow-primary {
+  box-shadow: 0 4px 14px 0 rgba(252, 165, 165, 0.3);
+  transition: all 0.3s ease;
+}
+.btn-glow-primary:hover {
+  box-shadow: 0 6px 20px 0 rgba(252, 165, 165, 0.5);
+  transform: scale(1.02);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fafaf9;
+}
+::-webkit-scrollbar-thumb {
+  background: #e7e5e4;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d6d3d1;
+}
